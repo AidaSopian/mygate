@@ -1,0 +1,66 @@
+<ActionBar class="action-bar top-bar">
+    <!-- 
+    Use the NavigationButton as a side-drawer button in Android
+    because ActionItems are shown on the right side of the ActionBar
+    -->
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <!-- 
+    Use the ActionItem for IOS with position set to left. Using the
+    NavigationButton as a side-drawer button in iOS is not possible,
+    because its function is to always navigate back in the application.
+    -->
+    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+    <Label class="action-bar-title" text="Dashboard"></Label>
+</ActionBar>
+
+<GridLayout columns="*,*" rows="*,*,*,*" width="auto" height="auto" class="container">
+    <GridLayout col="0" row="0" class="internal-container full-width">
+        <Image src="~/img/invite_visitors.png" tap="onTap"></Image>
+        <label text="INVITE VISITORS"></label>
+        <!-- <button text="INVITE VISITORS" tap="ontap" class="btn btn-primary full-width"></button> -->
+    </GridLayout>
+
+    <GridLayout col="1" row="0" class="internal-container">
+        <Image src="~/img/my_daily_helps.png" tap="onTap"></Image>
+        <label text="MY DAILY HELPS"></label>
+    </GridLayout>
+
+    <GridLayout col="0" row="1" class="internal-container">
+        <Image src="~/img/visitors.png" tap="onTap"></Image>
+        <label text="VISITORS"></label>
+    </GridLayout>
+
+    <GridLayout col="1" row="1" class="internal-container">
+        <Image src="~/img/notify_gate.png" tap="onTap"></Image>
+        <label text="NOTIFY GATE"></label>
+    </GridLayout>
+
+    <GridLayout col="0" row="2" class="internal-container">
+        <Image src="~/img/local_services.png" tap="onTap"></Image>
+        <label text="LOCAL SERVICES"></label>
+    </GridLayout>
+
+    <GridLayout col="1" row="2" class="internal-container">
+        <Image src="~/img/my_apartment.png" tap="onTap"></Image>
+        <label text="MY APARTMENT"></label>
+    </GridLayout> 
+
+    <GridLayout col="0" row="3" colSpan="2"> 
+        <GridLayout columns="*,*,*" rows="*,*" width="auto" height="auto">
+            <GridLayout col="0" row="0" colSpan="3" class="feedback-container"> 
+                <button text="Feedback" class="feedback"></button>
+            </GridLayout>
+            <GridLayout col="0" row="1" class="small-button-container car"> 
+                <button text="1" class="small-button"></button>
+            </GridLayout>
+            <GridLayout col="1" row="1" class="small-button-container"> 
+                <button text="2" class="small-button motor"></button>
+            </GridLayout>
+            <GridLayout col="2" row="1" class="small-button-container"> 
+                <button text="3" class="small-button people"></button>
+            </GridLayout>
+        </GridLayout>
+    </GridLayout>
+</GridLayout>
