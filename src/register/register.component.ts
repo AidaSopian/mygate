@@ -15,6 +15,7 @@ import { HttpService } from "~/http/http.service";
     templateUrl: "./register.component.html"
 })
 export class RegisterComponent implements OnInit {
+    _url = "auth/signup";
     name: string;
     email: string;
     password: string;
@@ -47,7 +48,7 @@ export class RegisterComponent implements OnInit {
         requestBody.append("password", this.password);
         requestBody.append("password_confirmation", this.confmPass);
 
-        this.http.posthttp("auth/signup", requestBody).then((data: any) => {
+        this.http.posthttp(this._url, requestBody).then((data: any) => {
             console.log(data);
         });
     }

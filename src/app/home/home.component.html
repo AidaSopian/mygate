@@ -16,8 +16,8 @@
 </ActionBar>
 
 <GridLayout columns="*,*" rows="*,*,*,*" width="auto" height="auto" class="container">
-    <GridLayout col="0" row="0" class="internal-container full-width">
-        <Image src="~/img/invite_visitors.png" tap="onTap"></Image>
+    <GridLayout col="0" row="0" class="internal-container full-width" (tap)="onTapVisitor()">
+        <Image src="~/img/invite_visitors.png"></Image>
         <label text="INVITE VISITORS"></label>
         <!-- <button text="INVITE VISITORS" tap="ontap" class="btn btn-primary full-width"></button> -->
     </GridLayout>
@@ -64,3 +64,4 @@
         </GridLayout>
     </GridLayout>
 </GridLayout>
+

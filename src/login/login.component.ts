@@ -9,13 +9,14 @@ import { HttpService } from "~/http/http.service";
     templateUrl: "./login.component.html"
 })
 export class LoginComponent implements OnInit {
-    email: string;
-    password: string;
+    public loginData: any;
+    _url = "auth/login";
  
     constructor(public router: RouterExtensions, public http: HttpService) {
-        /* ***********************************************************
-        * Use the constructor to inject app services that you need in this component.
-        *************************************************************/
+        this.loginData ={
+            "email": "",
+            "password": ""
+        }
     }
 
     ngOnInit(): void {
@@ -34,10 +35,12 @@ export class LoginComponent implements OnInit {
 
     onSigninButtonTap(): void {
 
+        console.log(this.loginData.email, this.loginData.password);
+        
         let requestBody = new FormData();
-        requestBody.append("email", this.email);
-        requestBody.append("password", this.password);
-        this.http.posthttp("auth/login?", requestBody).then((data: any) => {
+        requestBody.append("email", this.loginData.email);
+        requestBody.append("password", this.loginData.password);
+        this.http.posthttp(this._url, requestBody).then((data: any) => {
             console.log(data);
         });
     }
@@ -46,5 +49,9 @@ export class LoginComponent implements OnInit {
         /* ***********************************************************
         * Call your Forgot Password logic here.
         *************************************************************/
+    }
+
+    register() {
+        this.router.navigate(["/register"]);
     }
 }

@@ -2,14 +2,18 @@ import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angular";
 import { AppRoutingModule } from "./app-routing.module";
-import { AppComponent } from "./app.component";
 
+//page component 
+import { AppComponent } from "./app.component";
 import { LoginComponent } from "~/login/login.component";
 import { RegisterComponent } from "~/register/register.component";
-import { HttpService } from "~/http/http.service";
+import { InviteVisitorComponent } from "~/invite-visitor/invite-visitor.component";
 
+//added module
+import { HttpService } from "~/http/http.service";
 import { HttpClientModule } from "@angular/common/http";
 import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
+import { NativeScriptFormsModule, } from "nativescript-angular/forms";
 
 @NgModule({
     providers: [
@@ -24,12 +28,14 @@ import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
         NativeScriptModule,
         NativeScriptUISideDrawerModule,
         NativeScriptHttpClientModule,
-        HttpClientModule
+        HttpClientModule,
+        NativeScriptFormsModule,
     ],
     declarations: [
         AppComponent,
         LoginComponent,
-        RegisterComponent
+        RegisterComponent,
+        InviteVisitorComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA

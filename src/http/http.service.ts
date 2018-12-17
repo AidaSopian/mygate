@@ -7,7 +7,7 @@ const tokenKey = "token";
 
 @Injectable()
 export class HttpService {
-  public url:string = "http://192.168.0.112:8000/api/";
+  public url:string = "http://192.168.0.112/API/public/api/";
   public profile: any;
 
   constructor(public http: HttpClient){
