@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
         this.http.posthttp(this._url, requestBody).then((data: any) => {
             console.log(data);
         });
+        this.router.navigate(["/home"]);
     }
 
     onForgotPasswordTap(): void {

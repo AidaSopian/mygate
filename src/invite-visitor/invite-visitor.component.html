@@ -14,3 +14,41 @@
     </ActionItem>
     <Label class="action-bar-title" text="Invite Visitor"></Label>
 </ActionBar>
+
+<DockLayout class="container" stretchLastChild="true">
+    <AbsoluteLayout class="top-dock" backgroundColor="yellow" dock="top">
+        <GridLayout class="inner-container" columns="*,2*" rows="*" >
+            <AbsoluteLayout class="image" row="0" col="0">
+                <Image src="~/img/invite_visitors.png"></Image>
+            </AbsoluteLayout>
+            <AbsoluteLayout class="content" row="0" col="1">
+               <label text="Name: "></label>
+               <label text="Phone No: "></label>
+            </AbsoluteLayout>
+        </GridLayout>
+    </AbsoluteLayout>
+<!-- 
+    <AbsoluteLayout class="middle-dock" backgroundColor="blue" dock="top">
+
+    </AbsoluteLayout> -->
+
+    <AbsoluteLayout class="bottom-dock" backgroundColor="green" dock="bottom">
+        <StackLayout sdkExampleTitle sdkToggleNavButton backgroundColor="lightgray">
+            <Label text="Countries" class="h2 p-l-15 p-t-15" textWrap="true"></Label> 
+            <!-- >> ext-horizontal-lists-html -->
+            <ScrollView orientation="horizontal" (loaded)="onScrollLoaded($event)" (scroll)="onScroll($event)">
+                <StackLayout orientation="horizontal" class="list-group" height="300">
+                    <GridLayout *ngFor="let country of countries" id="{{ 'id' + country.id }}" (tap)="onTap($event)" rows="*, auto" columns="300" class="list-group-item m-15 active"> 
+                        <Image row="0" rowSpan="2" [src]="country.data.imageSrc" stretch="aspectFill"></Image>
+                        <StackLayout row="1" class="list-group-item" opacity="0.7" backgroundColor="gray" color="black">
+                            <Label class="list-group-item-heading" [text]="country.data.name" opacity="1"  color="white"></Label>
+                            <Label class="list-group-item-text" [text]="'Continent: '+country.data.continent" opacity="1" color="white"></Label>      
+                        </StackLayout>
+                    </GridLayout> 
+                </StackLayout>
+            </ScrollView>
+            <!-- << ext-horizontal-lists-html -->
+        </StackLayout>
+    </AbsoluteLayout>
+
+</DockLayout>

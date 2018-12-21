@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { HttpService } from "~/http/http.service";
+import { RouterExtensions } from "nativescript-angular/router";
 
 /* ***********************************************************
 * Before you can navigate to this page from your app, you need to reference this page's module in the
@@ -21,7 +22,7 @@ export class RegisterComponent implements OnInit {
     password: string;
     confmPass: string;
 
-    constructor(private http: HttpService) {
+    constructor(private http: HttpService, public router: RouterExtensions) {
         /* ***********************************************************
         * Use the constructor to inject app services that you need in this component.
         *************************************************************/
@@ -48,8 +49,10 @@ export class RegisterComponent implements OnInit {
         requestBody.append("password", this.password);
         requestBody.append("password_confirmation", this.confmPass);
 
+        console.log(requestBody);
         this.http.posthttp(this._url, requestBody).then((data: any) => {
-            console.log(data);
+            this.router.navigate(["/login"]);
         });
+        this.router.navigate(["/login"]);
     }
 }

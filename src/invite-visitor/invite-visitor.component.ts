@@ -1,35 +1,52 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, ChangeDetectionStrategy, OnInit } from "@angular/core";
+import { mockedDataArray } from "../mock-dataItems";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
-
-/* ***********************************************************
-* Before you can navigate to this page from your app, you need to reference this page's module in the
-* global app router module. Add the following object to the global array of routes:
-* { path: "invite-visitor", loadChildren: "./invite-visitor/invite-visitor.module#InviteVisitorModule" }
-* Note that this simply points the path to the page module file. If you move the page, you need to update the route too.
-*************************************************************/
+import { Observable, EventData, fromObject } from "tns-core-modules/data/observable";
+import { ListView, ItemEventData } from "tns-core-modules/ui/list-view";
+import { Page } from "tns-core-modules/ui/page";
+import { ScrollView, ScrollEventData } from "tns-core-modules/ui/scroll-view";
 
 @Component({
     selector: "InviteVisitor",
     moduleId: module.id,
     templateUrl: "./invite-visitor.component.html",
-    styleUrls: ["./invite-visitor.css"]
+    styleUrls: ["./invite-visitor.css"],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
+
 export class InviteVisitorComponent implements OnInit {
+
+    public countries: Array<any> = [];
+
     constructor() {
-        /* ***********************************************************
-        * Use the constructor to inject app services that you need in this component.
-        *************************************************************/
+
     }
 
     ngOnInit(): void {
-        /* ***********************************************************
-        * Use the "ngOnInit" handler to initialize data for this component.
-        *************************************************************/
+        for (let index = 0; index < mockedDataArray.length; index++) {
+            // creating an object with additional id key to re-use as unique id
+            this.countries.push({ "data": mockedDataArray[index], id: index });
+        }
     }
 
     onDrawerButtonTap(): void {
         const sideDrawer = <RadSideDrawer>app.getRootView();
         sideDrawer.showDrawer();
+    }
+
+    onTap(args: EventData) {
+        // using the unique id assigned via the view-model
+        console.log(args.object.get("id"));
+    }
+
+    onScroll(args: ScrollEventData) {
+        console.log("scrollX: " + args.scrollX + "; scrollY: " + args.scrollY);
+    }
+
+    onScrollLoaded(args) {
+        // scroll to specific position of the horizontal scroll list
+        let scrollOffset = 330;
+        (<ScrollView>args.object).scrollToHorizontalOffset(scrollOffset, true);
     }
 }
