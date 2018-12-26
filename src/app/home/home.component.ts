@@ -25,7 +25,15 @@ export class HomeComponent implements OnInit {
         sideDrawer.showDrawer();
     }
 
-    onTapVisitor(){
+    onTapInviteVisitor(){
         this.router.navigate(["/invite-visitor"]);
+    }
+
+    onTapVisitors(){
+        this.router.navigate(["/visitor"]);
+    }
+
+    onTapMyApartment(){
+        this.router.navigate(["/my-apartment"]);
     }
 }

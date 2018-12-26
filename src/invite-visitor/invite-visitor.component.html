@@ -1,14 +1,7 @@
 <ActionBar class="action-bar top-bar">
-    <!-- 
-    Use the NavigationButton as a side-drawer button in Android
-    because ActionItems are shown on the right side of the ActionBar
-    -->
+
     <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
-    <!-- 
-    Use the ActionItem for IOS with position set to left. Using the
-    NavigationButton as a side-drawer button in iOS is not possible,
-    because its function is to always navigate back in the application.
-    -->
+
     <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
         ios.position="left">
     </ActionItem>
@@ -22,33 +15,24 @@
                 <Image src="~/img/invite_visitors.png"></Image>
             </AbsoluteLayout>
             <AbsoluteLayout class="content" row="0" col="1">
-               <label text="Name: "></label>
-               <label text="Phone No: "></label>
+               <label text="Name: {{ Name }}"></label>
+               <label text="Phone No: {{ tel }}"></label>
             </AbsoluteLayout>
         </GridLayout>
     </AbsoluteLayout>
-<!-- 
-    <AbsoluteLayout class="middle-dock" backgroundColor="blue" dock="top">
 
-    </AbsoluteLayout> -->
-
-    <AbsoluteLayout class="bottom-dock" backgroundColor="green" dock="bottom">
-        <StackLayout sdkExampleTitle sdkToggleNavButton backgroundColor="lightgray">
-            <Label text="Countries" class="h2 p-l-15 p-t-15" textWrap="true"></Label> 
-            <!-- >> ext-horizontal-lists-html -->
-            <ScrollView orientation="horizontal" (loaded)="onScrollLoaded($event)" (scroll)="onScroll($event)">
-                <StackLayout orientation="horizontal" class="list-group" height="300">
-                    <GridLayout *ngFor="let country of countries" id="{{ 'id' + country.id }}" (tap)="onTap($event)" rows="*, auto" columns="300" class="list-group-item m-15 active"> 
-                        <Image row="0" rowSpan="2" [src]="country.data.imageSrc" stretch="aspectFill"></Image>
-                        <StackLayout row="1" class="list-group-item" opacity="0.7" backgroundColor="gray" color="black">
-                            <Label class="list-group-item-heading" [text]="country.data.name" opacity="1"  color="white"></Label>
-                            <Label class="list-group-item-text" [text]="'Continent: '+country.data.continent" opacity="1" color="white"></Label>      
-                        </StackLayout>
-                    </GridLayout> 
-                </StackLayout>
-            </ScrollView>
-            <!-- << ext-horizontal-lists-html -->
-        </StackLayout>
+    <AbsoluteLayout class="middle-dock"  dock="top">
+        <button text="INVITE VISITORS" (tap)="addVisitor()" class="btn btn-primary full-width"></button>
     </AbsoluteLayout>
+
+    <ListView [items]="contact" (itemTap)="onItemTap($event)" class="list-group" dock="bottom">
+        <ng-template let-contact="item" let-i="index" let-odd="odd" let-even="even">
+            <!-- The item template can only have a single root view container (e.g. GridLayout, StackLayout, etc.)-->
+            <StackLayout orientation="horizontal" class="list-group-item">
+                <Label text="Contact: " textWrap="true"></Label>
+                <Label [text]="contact.name"></Label>
+            </StackLayout>
+        </ng-template>
+    </ListView>
 
 </DockLayout>

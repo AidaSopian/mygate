@@ -1,33 +1,47 @@
 import { Component, ChangeDetectionStrategy, OnInit } from "@angular/core";
-import { mockedDataArray } from "../mock-dataItems";
-import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
+import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import { Observable, EventData, fromObject } from "tns-core-modules/data/observable";
 import { ListView, ItemEventData } from "tns-core-modules/ui/list-view";
 import { Page } from "tns-core-modules/ui/page";
 import { ScrollView, ScrollEventData } from "tns-core-modules/ui/scroll-view";
+
+import * as dialogs from "tns-core-modules/ui/dialogs";
+require( "nativescript-localstorage" );
+
+class Contact {
+    constructor(public name: string){}
+}
+
+let usrContact = [
+    "0123456789", "0123456789", , "0123456789", "0123456789", "0123456789", "0123456789", "0123456789", "0123456789", "0123456789", "0123456789", "0123456789", "0123456789", "0123456789", "0123456789", "0123456789", "0123456789"
+]  
 
 @Component({
     selector: "InviteVisitor",
     moduleId: module.id,
     templateUrl: "./invite-visitor.component.html",
     styleUrls: ["./invite-visitor.css"],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
 export class InviteVisitorComponent implements OnInit {
 
-    public countries: Array<any> = [];
+    name: any;
+    tel: any;
+    ls:any;
+
+    public contact: Array<Contact> ;
 
     constructor() {
-
+        this.contact = [];
+        for (let i=0; i< usrContact.length; i++){
+            this.contact.push(new Contact(usrContact[i]));
+        }
     }
 
     ngOnInit(): void {
-        for (let index = 0; index < mockedDataArray.length; index++) {
-            // creating an object with additional id key to re-use as unique id
-            this.countries.push({ "data": mockedDataArray[index], id: index });
-        }
+        
     }
 
     onDrawerButtonTap(): void {
@@ -35,18 +49,24 @@ export class InviteVisitorComponent implements OnInit {
         sideDrawer.showDrawer();
     }
 
-    onTap(args: EventData) {
-        // using the unique id assigned via the view-model
-        console.log(args.object.get("id"));
+    public onItemTap(a) {
+        console.log("Item Tapped at cell index " + a.index);
+        this.tel = usrContact[a.index];
     }
 
-    onScroll(args: ScrollEventData) {
-        console.log("scrollX: " + args.scrollX + "; scrollY: " + args.scrollY);
-    }
+    addVisitor(){
+        localStorage.setItem("Telephone Number", this.tel);
 
-    onScrollLoaded(args) {
-        // scroll to specific position of the horizontal scroll list
-        let scrollOffset = 330;
-        (<ScrollView>args.object).scrollToHorizontalOffset(scrollOffset, true);
+        dialogs.alert({
+            title: "Your titleAdded",
+            message: "Message have been sent to the visitor",
+            okButtonText: "Done"
+        }).then(() => {
+            console.log("Dialog closed!");
+        });
+
+        // this.ls = localStorage.getItem("Telephone Number");
+
+        // console.log(this.ls);
     }
 }

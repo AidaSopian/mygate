@@ -8,6 +8,8 @@ import { AppComponent } from "./app.component";
 import { LoginComponent } from "~/login/login.component";
 import { RegisterComponent } from "~/register/register.component";
 import { InviteVisitorComponent } from "~/invite-visitor/invite-visitor.component";
+import { VisitorsComponent } from "~/visitors/visitors.component";
+import { MyApartmentComponent } from "~/my-apartment/my-apartment.component";
 
 //added module
 import { HttpService } from "~/http/http.service";
@@ -35,7 +37,9 @@ import { NativeScriptFormsModule, } from "nativescript-angular/forms";
         AppComponent,
         LoginComponent,
         RegisterComponent,
-        InviteVisitorComponent
+        InviteVisitorComponent,
+        VisitorsComponent,
+        MyApartmentComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA

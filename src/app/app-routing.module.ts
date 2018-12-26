@@ -5,10 +5,12 @@ import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { LoginComponent } from "~/login/login.component";
 import { RegisterComponent } from "~/register/register.component";
 import { InviteVisitorComponent } from "~/invite-visitor/invite-visitor.component";
+import { VisitorsComponent } from "~/visitors/visitors.component";
+import { MyApartmentComponent } from "~/my-apartment/my-apartment.component";
 
 const routes: Routes = [
     //root page
-    { path: "", redirectTo: "/invite-visitor", pathMatch: "full" },
+    { path: "", redirectTo: "/visitor", pathMatch: "full" },
 
     { path: "home", loadChildren: "~/app/home/home.module#HomeModule" },
     { path: "browse", loadChildren: "~/app/browse/browse.module#BrowseModule" },
@@ -19,6 +21,8 @@ const routes: Routes = [
     { path: "login", component: LoginComponent },
     { path: "register", component: RegisterComponent },
     { path: "invite-visitor", component: InviteVisitorComponent },
+    { path: "visitor", component: VisitorsComponent },
+    { path: "my-apartment", component: MyApartmentComponent },
 ];
 
 @NgModule({

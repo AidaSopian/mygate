@@ -1,0 +1,30 @@
+<ActionBar class="action-bar top-bar">
+    <!-- 
+    Use the NavigationButton as a side-drawer button in Android
+    because ActionItems are shown on the right side of the ActionBar
+    -->
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <!-- 
+    Use the ActionItem for IOS with position set to left. Using the
+    NavigationButton as a side-drawer button in iOS is not possible,
+    because its function is to always navigate back in the application.
+    -->
+    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+    <Label class="action-bar-title" text="Visitors"></Label>
+</ActionBar>
+
+<StackLayout class="page">
+    <AbsoluteLayout class="visitorblock" backgroundColor="yellow" dock="top" height="150" width="auto">
+        <GridLayout class="inner-container" columns="*,2*" rows="*" width="100%">
+            <AbsoluteLayout class="image" row="0" col="0">
+                <Image src="~/img/invite_visitors.png"></Image>
+            </AbsoluteLayout>
+            <AbsoluteLayout class="content" row="0" col="1">
+                <label text="Name: {{ Name }}"></label>
+                <label text="Phone No: {{ tel }}"></label>
+            </AbsoluteLayout>
+        </GridLayout>
+    </AbsoluteLayout>
+</StackLayout>

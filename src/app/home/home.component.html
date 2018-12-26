@@ -16,7 +16,7 @@
 </ActionBar>
 
 <GridLayout columns="*,*" rows="*,*,*,*" width="auto" height="auto" class="container">
-    <GridLayout col="0" row="0" class="internal-container full-width" (tap)="onTapVisitor()">
+    <GridLayout col="0" row="0" class="internal-container full-width" (tap)="onTapInviteVisitor()">
         <Image src="~/img/invite_visitors.png"></Image>
         <label text="INVITE VISITORS"></label>
         <!-- <button text="INVITE VISITORS" tap="ontap" class="btn btn-primary full-width"></button> -->
@@ -27,8 +27,8 @@
         <label text="MY DAILY HELPS"></label>
     </GridLayout>
 
-    <GridLayout col="0" row="1" class="internal-container">
-        <Image src="~/img/visitors.png" tap="onTap"></Image>
+    <GridLayout col="0" row="1" class="internal-container" (tap)="onTapVisitors()">
+        <Image src="~/img/visitors.png" ></Image>
         <label text="VISITORS"></label>
     </GridLayout>
 
@@ -42,8 +42,8 @@
         <label text="LOCAL SERVICES"></label>
     </GridLayout>
 
-    <GridLayout col="1" row="2" class="internal-container">
-        <Image src="~/img/my_apartment.png" tap="onTap"></Image>
+    <GridLayout col="1" row="2" class="internal-container" (tap)="onTapMyApartment()">
+        <Image src="~/img/my_apartment.png"></Image>
         <label text="MY APARTMENT"></label>
     </GridLayout> 
 
