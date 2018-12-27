@@ -10,12 +10,14 @@ import { RegisterComponent } from "~/register/register.component";
 import { InviteVisitorComponent } from "~/invite-visitor/invite-visitor.component";
 import { VisitorsComponent } from "~/visitors/visitors.component";
 import { MyApartmentComponent } from "~/my-apartment/my-apartment.component";
+import { ProfileComponent } from "~/profile/profile.component";
 
 //added module
 import { HttpService } from "~/http/http.service";
 import { HttpClientModule } from "@angular/common/http";
 import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 import { NativeScriptFormsModule, } from "nativescript-angular/forms";
+
 
 @NgModule({
     providers: [
@@ -39,7 +41,8 @@ import { NativeScriptFormsModule, } from "nativescript-angular/forms";
         RegisterComponent,
         InviteVisitorComponent,
         VisitorsComponent,
-        MyApartmentComponent
+        MyApartmentComponent,
+        ProfileComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA

@@ -7,10 +7,11 @@ import { RegisterComponent } from "~/register/register.component";
 import { InviteVisitorComponent } from "~/invite-visitor/invite-visitor.component";
 import { VisitorsComponent } from "~/visitors/visitors.component";
 import { MyApartmentComponent } from "~/my-apartment/my-apartment.component";
+import { ProfileComponent } from "~/profile/profile.component";
 
 const routes: Routes = [
     //root page
-    { path: "", redirectTo: "/visitor", pathMatch: "full" },
+    { path: "", redirectTo: "/home", pathMatch: "full" },
 
     { path: "home", loadChildren: "~/app/home/home.module#HomeModule" },
     { path: "browse", loadChildren: "~/app/browse/browse.module#BrowseModule" },
@@ -23,6 +24,7 @@ const routes: Routes = [
     { path: "invite-visitor", component: InviteVisitorComponent },
     { path: "visitor", component: VisitorsComponent },
     { path: "my-apartment", component: MyApartmentComponent },
+    { path: "profile", component: ProfileComponent },
 ];
 
 @NgModule({

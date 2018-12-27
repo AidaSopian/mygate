@@ -1,32 +1,31 @@
 import { Component, OnInit } from "@angular/core";
+import { RouterExtensions } from "nativescript-angular/router";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
-require( "nativescript-localstorage" );
 
 /* ***********************************************************
 * Before you can navigate to this page from your app, you need to reference this page's module in the
 * global app router module. Add the following object to the global array of routes:
-* { path: "visitors", loadChildren: "./visitors/visitors.module#VisitorsModule" }
+* { path: "profile", loadChildren: "./profile/profile.module#ProfileModule" }
 * Note that this simply points the path to the page module file. If you move the page, you need to update the route too.
 *************************************************************/
 
 @Component({
-    selector: "Visitors",
+    selector: "Profile",
     moduleId: module.id,
-    templateUrl: "./visitors.component.html"
+    templateUrl: "./profile.component.html"
 })
-export class VisitorsComponent implements OnInit {
-
-    name: any;
-    tel: any;
-
-    constructor() {
-        
+export class ProfileComponent implements OnInit {
+    constructor(private router: RouterExtensions) {
+        /* ***********************************************************
+        * Use the constructor to inject app services that you need in this component.
+        *************************************************************/
     }
 
     ngOnInit(): void {
-        this.name = "anonymous";
-        this.tel = localStorage.getItem("Telephone Number");
+        /* ***********************************************************
+        * Use the "ngOnInit" handler to initialize data for this component.
+        *************************************************************/
     }
 
     onDrawerButtonTap(): void {
