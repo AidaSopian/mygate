@@ -12,7 +12,8 @@ import * as app from "tns-core-modules/application";
 @Component({
     selector: "MyApartment",
     moduleId: module.id,
-    templateUrl: "./my-apartment.component.html"
+    templateUrl: "./my-apartment.component.html",
+    styleUrls: ["./myapartment.css"]
 })
 export class MyApartmentComponent implements OnInit {
     constructor() {

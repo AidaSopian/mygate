@@ -11,7 +11,7 @@ import { ProfileComponent } from "~/profile/profile.component";
 
 const routes: Routes = [
     //root page
-    { path: "", redirectTo: "/home", pathMatch: "full" },
+    { path: "", redirectTo: "/my-apartment", pathMatch: "full" },
 
     { path: "home", loadChildren: "~/app/home/home.module#HomeModule" },
     { path: "browse", loadChildren: "~/app/browse/browse.module#BrowseModule" },

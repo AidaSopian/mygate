@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
         sideDrawer.showDrawer();
     }
 
+    //routing code T-T
     onTapInviteVisitor(){
         this.router.navigate(["/invite-visitor"]);
     }
@@ -36,4 +37,5 @@ export class HomeComponent implements OnInit {
     onTapMyApartment(){
         this.router.navigate(["/my-apartment"]);
     }
+    //routing ends here
 }
