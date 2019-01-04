@@ -25,17 +25,7 @@ export class HomeComponent implements OnInit {
         sideDrawer.showDrawer();
     }
 
-    //routing code T-T
-    onTapInviteVisitor(){
-        this.router.navigate(["/invite-visitor"]);
+    onTapHome(HomeItemRoute: string): void {
+        this.router.navigate([HomeItemRoute]);
     }
-
-    onTapVisitors(){
-        this.router.navigate(["/visitor"]);
-    }
-
-    onTapMyApartment(){
-        this.router.navigate(["/my-apartment"]);
-    }
-    //routing ends here
 }

@@ -8,6 +8,8 @@ import { InviteVisitorComponent } from "~/invite-visitor/invite-visitor.componen
 import { VisitorsComponent } from "~/visitors/visitors.component";
 import { MyApartmentComponent } from "~/my-apartment/my-apartment.component";
 import { ProfileComponent } from "~/profile/profile.component";
+import { EmergencyContactComponent } from "~/emergency-contact/emergency-contact.component";
+import { EditApartmentComponent } from "~/edit-apartment/edit-apartment.component";
 
 const routes: Routes = [
     //root page
@@ -25,6 +27,8 @@ const routes: Routes = [
     { path: "visitor", component: VisitorsComponent },
     { path: "my-apartment", component: MyApartmentComponent },
     { path: "profile", component: ProfileComponent },
+    { path: "emergency-contact", component: EmergencyContactComponent },
+    { path: "edit-apartment", component: EditApartmentComponent },
 ];
 
 @NgModule({

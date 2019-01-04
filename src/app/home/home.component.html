@@ -16,27 +16,27 @@
 </ActionBar>
 
 <GridLayout columns="*,*" rows="*,*,*,*" width="auto" height="auto" class="container">
-    <GridLayout col="0" row="0" class="internal-container full-width" (tap)="onTapInviteVisitor()">
+    <GridLayout col="0" row="0" class="internal-container full-width" (tap)="onTapHome('/invite-visitor')">
         <Image src="~/img/invite_visitors.png"></Image>
         <label text="INVITE VISITORS"></label>
         <!-- <button text="INVITE VISITORS" tap="ontap" class="btn btn-primary full-width"></button> -->
     </GridLayout>
 
-    <GridLayout col="1" row="0" class="internal-container">
-        <Image src="~/img/my_daily_helps.png" tap="onTap"></Image>
-        <label text="MY DAILY HELPS"></label>
+    <GridLayout col="1" row="0" class="internal-container" (tap)="onTapHome('/my-apartment')">
+        <Image src="~/img/my_apartment.png"></Image>
+        <label text="MY APARTMENT"></label>
     </GridLayout>
 
-    <GridLayout col="0" row="1" class="internal-container" (tap)="onTapVisitors()">
+    <GridLayout col="0" row="1" class="internal-container" (tap)="onTapHome('/visitor')">
         <Image src="~/img/visitors.png" ></Image>
         <label text="VISITORS"></label>
     </GridLayout>
 
-    <GridLayout col="1" row="1" class="internal-container">
-        <Image src="~/img/notify_gate.png" tap="onTap"></Image>
-        <label text="NOTIFY GATE"></label>
+    <GridLayout col="1" row="1" class="internal-container" (tap)="onTapHome('/emergency-contact')">
+        <Image src="~/img/notify_gate.png"></Image>
+        <label text="EMERGENCY CONTACT"></label>
     </GridLayout>
-
+<!-- 
     <GridLayout col="0" row="2" class="internal-container">
         <Image src="~/img/local_services.png" tap="onTap"></Image>
         <label text="LOCAL SERVICES"></label>
@@ -45,7 +45,7 @@
     <GridLayout col="1" row="2" class="internal-container" (tap)="onTapMyApartment()">
         <Image src="~/img/my_apartment.png"></Image>
         <label text="MY APARTMENT"></label>
-    </GridLayout> 
+    </GridLayout>  -->
 
     <GridLayout col="0" row="3" colSpan="2"> 
         <GridLayout columns="*,*,*" rows="*,*" width="auto" height="auto">

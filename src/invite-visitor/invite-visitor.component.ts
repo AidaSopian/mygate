@@ -14,7 +14,7 @@ class Contact {
 }
 
 let usrContact = [
-    "0123456789", "0123456789", "0123456789", "0123456789", "0123456789", "0123456789", "0123456789", "0123456789", "0123456789", "0123456789", "0123456789", "0123456789", "0123456789", "0123456789", "0123456789", "0123456789", "0123456789"
+    "1111111111", "2222222222", "3333333333", "4444444444", "5555555555", "6666666666", "7777777777", "8888888888", "1010101010", "1122112211", "2233223322", "3344334433", "4455445544", "5566556655", "7788778877", "8899888999", "2200200220"
 ]  
 
 @Component({
@@ -58,15 +58,12 @@ export class InviteVisitorComponent implements OnInit {
         localStorage.setItem("Telephone Number", this.tel);
 
         dialogs.alert({
-            title: "Your titleAdded",
+            title: "Contact Invited",
             message: "Message have been sent to the visitor",
             okButtonText: "Done"
         }).then(() => {
             console.log("Dialog closed!");
         });
 
-        // this.ls = localStorage.getItem("Telephone Number");
-
-        // console.log(this.ls);
     }
 }

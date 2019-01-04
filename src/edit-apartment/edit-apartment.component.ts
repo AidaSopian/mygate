@@ -13,10 +13,16 @@ import { Component, OnInit } from "@angular/core";
     templateUrl: "./edit-apartment.component.html"
 })
 export class EditApartmentComponent implements OnInit {
+    name: any;
+    block: any;
+    level: any;
+    aprtnum: any;
+
     constructor() {
-        /* ***********************************************************
-        * Use the constructor to inject app services that you need in this component.
-        *************************************************************/
+        this.name = "Apartment";
+        this.block = "A";
+        this.level = "12";
+        this.aprtnum = "1201";
     }
 
     ngOnInit(): void {

@@ -1,6 +1,21 @@
-<ActionBar class="action-bar">
-    <Label class="action-bar-title" text="Home"></Label>
+<ActionBar class="action-bar top-bar">
+
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+
+    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+    <Label class="action-bar-title" text="Edit Apartment"></Label>
 </ActionBar>
 
 <StackLayout class="page">
+    <label class="m-t-10 m-b-10 m-l-15 m-r-15" text="Name"></label>
+    <TextField class="m-t-10 m-b-10 m-l-15 m-r-15" hint="{{ name }}" autocapitalization="none" [(ngModel)]="name"></TextField>
+    <label class="m-t-10 m-b-10 m-l-15 m-r-15" text="Block"></label>
+    <TextField class="m-t-10 m-b-10 m-l-15 m-r-15" hint="{{ block }}" autocapitalization="none" [(ngModel)]="block"></TextField>
+    <label class="m-t-10 m-b-10 m-l-15 m-r-15" text="Level"></label>
+    <TextField class="m-t-10 m-b-10 m-l-15 m-r-15" hint="{{ level }}" autocapitalization="none" [(ngModel)]="level"></TextField>
+    <label class="m-t-10 m-b-10 m-l-15 m-r-15" text="Aprt Number"></label>
+    <TextField class="m-t-10 m-b-10 m-l-15 m-r-15" hint="{{ aprtnum }}" autocapitalization="none" [(ngModel)]="aprtnum"></TextField>
+    <button text="Save Changes" (tap)="editbutton()" class="btn btn-primary full-width"></button>
 </StackLayout>
